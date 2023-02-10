@@ -13,6 +13,7 @@ public class ChatStorageClient
         _logger = logger;
         _logger.LogInformation("Creating ChatStorageClient instance");
         var connStr = Environment.GetEnvironmentVariable("ConnectionStrings:TableConnection");
+        var tableName = Environment.GetEnvironmentVariable("TableName");
         if (connStr == null)
         {
             _logger.LogError($"Development connection string is null");
@@ -25,7 +26,13 @@ public class ChatStorageClient
             }
             
         }
-        _tableClient = new TableClient(connStr, "RescheduleStorage");
+
+        if (tableName == null)
+        {
+            _logger.LogError($"TableName is not set");
+            throw new Exception("TableName is not set");
+        }
+        _tableClient = new TableClient(connStr, tableName);
     }
 
     public void SetupTable()
