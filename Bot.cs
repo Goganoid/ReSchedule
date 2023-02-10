@@ -297,6 +297,7 @@ public class Bot
 /today{bot} — Розклад на сьогодні
 /tomorrow{bot} — Розклад на завтра
 /left{bot} — скільки часу лишилося до завершення
+<a href='https://github.com/Goganoid/ReSchedule/tree/master'>Код</a>
 При проблемах з ботом пишіть на пошту <span class=""tg-spoiler"">yehor.kardash.dev@gmail.com</span>
 ";
 
