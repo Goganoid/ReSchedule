@@ -1,0 +1,14 @@
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+        "NGROK": "https://my-ngrok-url.io",
+        "TelegramBotToken": "TELEGRAM_BOT_TOKEN",
+        "AccessKey": "VERY_SECRET_KEY"
+    },
+    "ConnectionStrings": {
+        "TableConnection": "DB_CONNECTION_STRING"
+    }
+    
+}
