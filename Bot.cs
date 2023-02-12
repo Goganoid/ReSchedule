@@ -170,13 +170,9 @@ public class Bot
             // Saturday
             case 6 when dayOption == DayOption.Tomorrow:
                 return await _botClient.SendTextMessageAsync(message.Chat.Id, text: "У неділю тільки чіл");
-            // Sunday 
-            case 7 when dayOption == DayOption.Tomorrow:
-                dayIndex = 0;
-                break;
             // ReSharper disable once ConditionIsAlwaysTrueOrFalse
             // Sunday
-            case 7 when dayOption == DayOption.Today:
+            case 0 when dayOption == DayOption.Today:
                 return await _botClient.SendTextMessageAsync(message.Chat.Id, text: "У неділю тільки чіл");
         }
         if (dayIndex >= week.Count)

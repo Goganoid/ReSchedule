@@ -47,9 +47,9 @@ namespace ReSchedule
             _accessKey = accessKey;
         }
         
-        [Function("Setup")]
+        [Function("setup")]
         public async Task<HttpResponseData> Setup(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post",Route="Setup/{key}")] HttpRequestData req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post",Route="setup/{key}")] HttpRequestData req,
             string key)
         {
             _logger.LogInformation($"Called {nameof(Setup)}");
@@ -109,14 +109,13 @@ namespace ReSchedule
                 _logger.LogInformation("Can't deserialize request");
                 return;
             }
-            var handler = update.Type switch
-            {
-                UpdateType.Message => _bot.BotOnMessageReceived(update.Message!),
-                _ => Bot.UnknownUpdateHandlerAsync(update)
-            };
-
             try
             {
+                var handler = update.Type switch
+                {
+                    UpdateType.Message => _bot.BotOnMessageReceived(update.Message!),
+                    _ => Bot.UnknownUpdateHandlerAsync(update)
+                };
                 await handler;
             }
             catch (Exception exception)
